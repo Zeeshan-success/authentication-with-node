@@ -11,7 +11,7 @@ router.post('/signup', HandleCreateUser);
 router.post('/verify-email', HandleVerifyEmail);
 router.post('/resend-verification', HandleResendVerificationCode);
 router.post('/forgot-password', handleForgotPassword);
-router.post('/reset-password/:token', handleResetPassword);
+router.post('/reset-password/', handleResetPassword);
 
 
 module.exports = router;

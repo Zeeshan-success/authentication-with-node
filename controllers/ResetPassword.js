@@ -2,8 +2,8 @@ const bcrypt = require('bcrypt');
 const User = require('../models/signUpModel'); // Assuming you have a User model defined
 
 const handleResetPassword = async (req, res) => {
-  const { token } = req.params;
-  const { password } = req.body;
+  const { token,password } = req.body;
+  
 
   const user = await User.findOne({
     resetPasswordToken: token,

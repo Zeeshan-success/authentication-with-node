@@ -1,7 +1,7 @@
 // controllers/authController.js
 const crypto = require('crypto');
 const User = require('../models/signUpModel');
-const sendEmail = require('../utils/resetPassword');
+const sendEmail = require('../utils/resetPasswordEmail');
 
 const handleForgotPassword = async (req, res) => {
   const { email } = req.body;
@@ -18,7 +18,7 @@ const handleForgotPassword = async (req, res) => {
 
   await user.save();
 
-  const resetLink = `http://localhost:3000/reset-password/${resetToken}`;
+  const resetLink = `http://localhost:3000/reset-password?trs=${resetToken}`;
   await sendEmail(email, 'Password Reset', `Click to reset: ${resetLink}`);
 
   res.json({ message: 'Reset link sent to email' });
